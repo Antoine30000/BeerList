@@ -1,0 +1,24 @@
+<mat-button-toggle-group name="sorting" aria-label="Sort">
+    <mat-button-toggle value="byDate" (click)="sortByDate()">Date</mat-button-toggle>
+    <mat-button-toggle value="byName" (click)="sortByName()">Name</mat-button-toggle>
+  </mat-button-toggle-group>
+
+<mat-grid-list cols="2" rowHeight="2:1">
+    <div *ngFor="let beer of beers">
+        <mat-grid-tile>
+<mat-card class="beer-detail">
+    <mat-card-header>
+    <mat-card-title>{{beer.name}}</mat-card-title>
+<mat-card-subtitle class="beer-description" [title]="beer.description"> {{beer.description}}</mat-card-subtitle>
+    </mat-card-header>
+    <img class="beer-image" [src]="beer.image_url"/>
+    <mat-card-content>
+    <p class="beer-description" [title]="beer.first_brewed">First brewed : {{beer.first_brewed}}</p>
+    <p class="beer-description" [title]="beer.ibu">Ibu : {{beer.ibu}}</p>
+    <p class="beer-description" [title]="beer.abv">Abv : {{beer.abv}}</p>
+    </mat-card-content>
+</mat-card>
+</mat-grid-tile>
+</div>
+
+</mat-grid-list>
